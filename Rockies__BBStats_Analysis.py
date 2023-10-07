@@ -1,8 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
 
-# Initialize empty list for the 3 columns we want
-
 balls = []
 exit_velocity = []
 player_names = []
@@ -10,17 +8,11 @@ player_instances = []
 players_accepted = []
 converted_exit_velocity = []
 
-# This opens the CSV file in the directory and sets it as a readable file called Rockies
-# reading
-
 with open('RockiesData.csv', 'r') as Rockies:
     csv_reader = csv.reader(Rockies)
 
-    #skipping the header row
     header = next(csv_reader)
 
-    #Iterating through the rows in the CSV file
-    # entering values into the lists
     for row in csv_reader:
         balls.append(row[24])
         exit_velocity.append(row[53])
@@ -69,19 +61,19 @@ with open('RockiesData.csv', 'r') as Rockies:
     for player, velocity in players_and_their_average_velocities.items():
         if velocity == max(players_and_their_average_velocities.values()):
 
-            # Define the text
+        
             text = f"Player with highest average exit velocity: {player} at {velocity:.2f} mph"
 
-            # Create a figure and axis
+           
             fig, ax = plt.subplots()
 
-            # Display the text as an annotation
+            
             ax.annotate(text, xy=(0.5, 0.5), fontsize=12, ha="center")
 
-            # Remove axis labels and ticks
+          
             ax.axis("off")
 
-            # Show the plot
+           
             plt.show()
 
 
